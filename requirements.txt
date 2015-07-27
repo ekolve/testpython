@@ -1,0 +1,10 @@
+flask
+markupsafe
+flask-restful
+gunicorn
+requests
+boto3
+boto
+invoke
+nose
+codecov

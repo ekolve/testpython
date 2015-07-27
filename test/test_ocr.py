@@ -1,3 +1,3 @@
 
 def test_thing():
-    pass
+    mypackage.mything(10)

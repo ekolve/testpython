@@ -1,0 +1,10 @@
+language: python
+python:
+  - "3.6"
+install:
+  - pip install requests
+cache: pip
+script:
+  - true
+git:
+    depth: 3

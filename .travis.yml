@@ -5,7 +5,8 @@ install:
 - pip install requests
 cache: pip
 script:
-- true
+    - true
+    - env
 git:
   depth: 3
 deploy:

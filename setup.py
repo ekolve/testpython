@@ -1,8 +1,18 @@
 from setuptools import setup, find_packages
+import re
 
 
+git_tag_version = (
+    subprocess.check_output("git describe --tags", shell=True)
+    .decode("ascii")
+    .strip()
+)
 
-VERSION = '1.0.3'
+if not re.match(r'^[0-9]+\.[0-9]+\.[0-9]+', git_tag_version):
+    raise Exception("Invalid git tag version number: %s" % git_tag_version)
+
+VERSION = git_tag_version
+
 
 
 setup(name='ekolve-testpython',

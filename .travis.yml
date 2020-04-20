@@ -1,19 +1,22 @@
 language: python
 python:
-  - "3.6"
+- '3.6'
 install:
-  - pip install requests
+- pip install requests
 cache: pip
 script:
-  - true
+- true
 git:
-    depth: 3
+  depth: 3
 deploy:
-    provider: pypi
-    username: __token__
-    password: Hbzb4cl8Q0e+cUrz8AlD7cRk/lJAmnmDlv6R4Ez79ez1ih1JX4dnQxgKpfya8jDDVeAwk3N0pGo2bFg6Khp7UCMFEWlIO2KE/TL+WKzkl423BXj9leBJybGH+19L6WpSdQh7icOrpYyektDV3agN5wZJVh94hjClkVWrrb8Tcv0kWlA2wEQBg20QIaUIi0ATVor7oGBb8O6jhPcCFJ7Gg6rznQnQwlZfCNfW6W7K7oLNowJbNeKsW6UZ2/v0CzYkGfK8AwrX8hgIFNO7usvvaanAfy3/NOd3u/wCi3W38A/1KVwn86MwW0RHX8BDNi5lSwmCObcgSwq07KbEqFZgjBQGnTSbXJLOwWHXHxzyYhTp8o1+Gp9wjTkT2gMMisKzTg0EYQ9HafMuriO2tkfFRKP8OV1KABaNcOIVC0+YJQ03lhSvjHpOUTmJX/XBzF4xiT50uT5gjCNBQD6R0CkUZp9iQ96+4KscIlCI7xHr4mt8BjXuoDIJJ6+2GOeqjMFFCQQnPl9LnjXtZoVvNmtdwn65XJFR4cTVrQOgor+U791OvFpznY+DhyJKLYql+T9O0CsBkBGH11qqM2wtdywjF0WwpWCMuHQe8wl0WWPo+OvhEcp2zt6pUaHfQeXRszEM6+0T+iyICoQegoAiRjsoygGONGLGW8saT8fNiot2Ycw=
-    server: https://test.pypi.org/legacy/
-    edge: true # opt in to dpl v2
-    distributions: "sdist bdist_wheel --universal"
-    on: 
-        tags: true
+  provider: pypi
+  username: __token__
+  password: m9SRup4q7R4plc1fuKUQE9y/M+vWeTbu/pYaizwRTN5HjhEXcnyg63gAkr/EO4T2VzKCobOsDJaySFmFfWYWkfktWLaw47dhtrbwrrPFeaCjg+wqF9y3jN5wvVlUwDPoaBJtFi3KL28aFg+RY+iO/bXUFgURRVUbnhK/vf39THcuSeo5Fys+jJKfWBIjxB6vyUR124WNkmFpLGgiDqxQXv1Mk+xPMSsry2iawTpZjyxeokpzA1rO5BX+orcMEs5Vm4x2eLVHtTtoqjY0UEvbclH/kA4u0XCT8FjdP+Kmv/qAP+hJALQk/IBSa5Id2VcGU5at65BvOpssWGXp60UPSOvLWLfoZIXBOPBOif3gJIbhfQGgoA7z+7dEChOx4ZlybDMguRWm4hupHZnkcZqftCmyV6lKTBdT8TGSuG+B1r6kmgLdg8yShvcnU3OaIgSpAQTN4LNJ5r+Ll4vdYCgbUy/YUOGsasxODJiPbxK+mOuDKtuVU6CV22TPVNKq+sdUWOq7ZbhwGVKneEJHTwnHvo+nWt9zsC8QGJXOuzBzhnFCdGcgH6Q4KbwpYqUMlB2/s79g6H3auVV6jiubl49LhxjUdHsp40GV+Nlt9ThIN2XHsPcicRMKDzYc+UjvY9u7hk2MMcvbwg7hfoYVaEy9sPb25vw7r31xS5u4IBBhWw4=
+  server: https://test.pypi.org/legacy/
+  edge: true
+  distributions: sdist bdist_wheel --universal
+  on:
+    tags: true
+env:
+  global:
+    secure: m9SRup4q7R4plc1fuKUQE9y/M+vWeTbu/pYaizwRTN5HjhEXcnyg63gAkr/EO4T2VzKCobOsDJaySFmFfWYWkfktWLaw47dhtrbwrrPFeaCjg+wqF9y3jN5wvVlUwDPoaBJtFi3KL28aFg+RY+iO/bXUFgURRVUbnhK/vf39THcuSeo5Fys+jJKfWBIjxB6vyUR124WNkmFpLGgiDqxQXv1Mk+xPMSsry2iawTpZjyxeokpzA1rO5BX+orcMEs5Vm4x2eLVHtTtoqjY0UEvbclH/kA4u0XCT8FjdP+Kmv/qAP+hJALQk/IBSa5Id2VcGU5at65BvOpssWGXp60UPSOvLWLfoZIXBOPBOif3gJIbhfQGgoA7z+7dEChOx4ZlybDMguRWm4hupHZnkcZqftCmyV6lKTBdT8TGSuG+B1r6kmgLdg8yShvcnU3OaIgSpAQTN4LNJ5r+Ll4vdYCgbUy/YUOGsasxODJiPbxK+mOuDKtuVU6CV22TPVNKq+sdUWOq7ZbhwGVKneEJHTwnHvo+nWt9zsC8QGJXOuzBzhnFCdGcgH6Q4KbwpYqUMlB2/s79g6H3auVV6jiubl49LhxjUdHsp40GV+Nlt9ThIN2XHsPcicRMKDzYc+UjvY9u7hk2MMcvbwg7hfoYVaEy9sPb25vw7r31xS5u4IBBhWw4=

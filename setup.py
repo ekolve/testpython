@@ -9,6 +9,8 @@ git_tag_version = (
     .strip()
 )
 
+
+
 if not re.match(r'^[0-9]+\.[0-9]+\.[0-9]+', git_tag_version):
     raise Exception("Invalid git tag version number: %s" % git_tag_version)
 

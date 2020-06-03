@@ -3,6 +3,8 @@ import re
 import subprocess
 
 
+
+
 git_tag_version = (
     subprocess.check_output("git describe --tags", shell=True)
     .decode("ascii")

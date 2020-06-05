@@ -6,8 +6,6 @@ requests
 boto3
 boto
 
-
-
 invoke
 nose
 codecov

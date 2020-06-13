@@ -1,6 +1,0 @@
-[submodule "ai2thor-private"]
-	path = ai2thor-private
-	url = https://github.com/allenai/ai2thor-private
-[submodule "snapfs"]
-	path = snapfs
-	url = https://github.com/allenai/vision-snapfs

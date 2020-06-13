@@ -20,7 +20,6 @@ deploy:
   distributions: sdist bdist_wheel --universal
   on:
     tags: true
-    condition: $TRAVIS_TAG =~ "^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$" && $(git branch --format='%(refname:short)' --contains tags/$TRAVIS_TAG) = 'master' && $(git describe --tags --exact-match)
 env:
   global:
     secure: m9SRup4q7R4plc1fuKUQE9y/M+vWeTbu/pYaizwRTN5HjhEXcnyg63gAkr/EO4T2VzKCobOsDJaySFmFfWYWkfktWLaw47dhtrbwrrPFeaCjg+wqF9y3jN5wvVlUwDPoaBJtFi3KL28aFg+RY+iO/bXUFgURRVUbnhK/vf39THcuSeo5Fys+jJKfWBIjxB6vyUR124WNkmFpLGgiDqxQXv1Mk+xPMSsry2iawTpZjyxeokpzA1rO5BX+orcMEs5Vm4x2eLVHtTtoqjY0UEvbclH/kA4u0XCT8FjdP+Kmv/qAP+hJALQk/IBSa5Id2VcGU5at65BvOpssWGXp60UPSOvLWLfoZIXBOPBOif3gJIbhfQGgoA7z+7dEChOx4ZlybDMguRWm4hupHZnkcZqftCmyV6lKTBdT8TGSuG+B1r6kmgLdg8yShvcnU3OaIgSpAQTN4LNJ5r+Ll4vdYCgbUy/YUOGsasxODJiPbxK+mOuDKtuVU6CV22TPVNKq+sdUWOq7ZbhwGVKneEJHTwnHvo+nWt9zsC8QGJXOuzBzhnFCdGcgH6Q4KbwpYqUMlB2/s79g6H3auVV6jiubl49LhxjUdHsp40GV+Nlt9ThIN2XHsPcicRMKDzYc+UjvY9u7hk2MMcvbwg7hfoYVaEy9sPb25vw7r31xS5u4IBBhWw4=

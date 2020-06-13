@@ -8,6 +8,7 @@ script:
     - true
     - env
     - git describe --tags --exact-match
+    - git branch --format='%(refname:short)' --contains tags/$TRAVIS_TAG) = 'master'
 git:
   depth: 3
 deploy:

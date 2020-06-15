@@ -14,5 +14,5 @@ deploy:
   on:
     tags: true
     condition: $TRAVIS_TAG =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$
-  password:
+  env:
     secure: CAJmHYEmdmFz/OQS5t5jVPkW/HpNtd7mAAmdzMVLPzAb/f+ahQkNNc/9nmnoxFuN5UvXxgp/MrVhxWfLvP6n29/Vi1BlTtsoPD11OOyrum9Y+NPSEOdWhRkxycwO9BdNU8EQlbEuaMlv93tzl7LShXHMCAw26J9fWC/FsFFFv0UlLMWc8oOuSj4syRzuFpOvw6EqmdYzpwbJcabMSGHsMLWpdvE083Y/f96L/CYFAxL+/rxCOTpjvupf+7s4QfWyMH+f+WGRaXVMcgVot8KpE+E+T7qussYJiW+6j1RKmcV29VPEIqA0hlyRoMJsvuWRFCLXGveyYWRcvVk3sWxG4aRAmYIZvopci2tbiyamqvHhqbYbWZD/MDbHfx67YYdpgqPsKZEepfFcxTFd7/SLH4uJVu9XK7tdQEp/lvYw07C3+Li6B8oV5xRmzchhkIq4LzBQ9IfAMR/Wuxv5seSiBsPYHBvUTnacDKo3yjMqLnafU3/5XpYgTMvu7nYbqn0v58d3j159LQ1TGFbClCc/bqs+DgfPiQX54ctB6x/1tLWT+tMMunL4lxBJ15XyKye6cwT4XZGVWR1+XRLRXXhxcM1+2epSKgCVVCC3JRITX49hRidXdrMrUJvBCnU0oRAN1IsbwRJvgdbT/zt+pxJdDS1rHuRfqvSVy2vberJeVqc=

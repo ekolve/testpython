@@ -40,3 +40,4 @@ def deploy_pip(context):
     if 'TWINE_PASSWORD' not in os.environ:
         raise Exception("Twine token not specified in environment")
     subprocess.check_call("twine upload --repository testpypi -u __token__ dist/*", shell=True)
+

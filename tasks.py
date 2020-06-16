@@ -24,8 +24,8 @@ def build_pip(context):
         latest_version = title.text
         break
     
-    current_maj, current_min, current_sub = latest_version.split('.')
-    next_maj, next_min, next_sub = git_tag_version.split('.')
+    current_maj, current_min, current_sub = list(map(int, latest_version.split('.')))
+    next_maj, next_min, next_sub = list(map(int, git_tag_version.split('.')))
 
     if (next_maj > current_maj) or \
         (next_maj >= current_maj and next_min > current_min) or \
@@ -34,7 +34,6 @@ def build_pip(context):
     else:
         raise Exception("Invalid version: %s is not greater than latest version %s" % (git_tag_version, latest_version))
         
-    
 
 @task
 def deploy_pip(context):

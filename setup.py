@@ -4,7 +4,7 @@ import subprocess
 
 
 git_tag_version = (
-    subprocess.check_output("git describe --tags", shell=True)
+    subprocess.check_output("git describe --tags --exact-match", shell=True)
     .decode("ascii")
     .strip()
 )

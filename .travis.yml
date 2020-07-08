@@ -1,28 +1,20 @@
 language: python
 python:
-- '3.6'
+    - '3.6'
 install:
-- pip install requests
+    - pip install requests invoke
 cache: pip
 script:
     - true
-    - env
-    - git describe --tags --exact-match
-    - git branch --format='%(refname:short)' --contains tags/$TRAVIS_TAG
 git:
-  depth: 3
+    depth: 3
 deploy:
-  provider: pypi
-  username: __token__
-  password: 
-    secure: m9SRup4q7R4plc1fuKUQE9y/M+vWeTbu/pYaizwRTN5HjhEXcnyg63gAkr/EO4T2VzKCobOsDJaySFmFfWYWkfktWLaw47dhtrbwrrPFeaCjg+wqF9y3jN5wvVlUwDPoaBJtFi3KL28aFg+RY+iO/bXUFgURRVUbnhK/vf39THcuSeo5Fys+jJKfWBIjxB6vyUR124WNkmFpLGgiDqxQXv1Mk+xPMSsry2iawTpZjyxeokpzA1rO5BX+orcMEs5Vm4x2eLVHtTtoqjY0UEvbclH/kA4u0XCT8FjdP+Kmv/qAP+hJALQk/IBSa5Id2VcGU5at65BvOpssWGXp60UPSOvLWLfoZIXBOPBOif3gJIbhfQGgoA7z+7dEChOx4ZlybDMguRWm4hupHZnkcZqftCmyV6lKTBdT8TGSuG+B1r6kmgLdg8yShvcnU3OaIgSpAQTN4LNJ5r+Ll4vdYCgbUy/YUOGsasxODJiPbxK+mOuDKtuVU6CV22TPVNKq+sdUWOq7ZbhwGVKneEJHTwnHvo+nWt9zsC8QGJXOuzBzhnFCdGcgH6Q4KbwpYqUMlB2/s79g6H3auVV6jiubl49LhxjUdHsp40GV+Nlt9ThIN2XHsPcicRMKDzYc+UjvY9u7hk2MMcvbwg7hfoYVaEy9sPb25vw7r31xS5u4IBBhWw4=
-  server: https://test.pypi.org/legacy/
-  edge: true
-  distributions: sdist bdist_wheel --universal
-  on:
-    tags: true
-    condition: $(git describe --tags --exact-match) && $TRAVIS_TAG =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ && $(git branch --format='%(refname:short)' --contains tags/$TRAVIS_TAG) = 'master'
-
+    provider: script
+    script: bash build.sh
+    on:
+        tags: true
+        condition: $TRAVIS_TAG =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$
 env:
-  global:
-    secure: m9SRup4q7R4plc1fuKUQE9y/M+vWeTbu/pYaizwRTN5HjhEXcnyg63gAkr/EO4T2VzKCobOsDJaySFmFfWYWkfktWLaw47dhtrbwrrPFeaCjg+wqF9y3jN5wvVlUwDPoaBJtFi3KL28aFg+RY+iO/bXUFgURRVUbnhK/vf39THcuSeo5Fys+jJKfWBIjxB6vyUR124WNkmFpLGgiDqxQXv1Mk+xPMSsry2iawTpZjyxeokpzA1rO5BX+orcMEs5Vm4x2eLVHtTtoqjY0UEvbclH/kA4u0XCT8FjdP+Kmv/qAP+hJALQk/IBSa5Id2VcGU5at65BvOpssWGXp60UPSOvLWLfoZIXBOPBOif3gJIbhfQGgoA7z+7dEChOx4ZlybDMguRWm4hupHZnkcZqftCmyV6lKTBdT8TGSuG+B1r6kmgLdg8yShvcnU3OaIgSpAQTN4LNJ5r+Ll4vdYCgbUy/YUOGsasxODJiPbxK+mOuDKtuVU6CV22TPVNKq+sdUWOq7ZbhwGVKneEJHTwnHvo+nWt9zsC8QGJXOuzBzhnFCdGcgH6Q4KbwpYqUMlB2/s79g6H3auVV6jiubl49LhxjUdHsp40GV+Nlt9ThIN2XHsPcicRMKDzYc+UjvY9u7hk2MMcvbwg7hfoYVaEy9sPb25vw7r31xS5u4IBBhWw4=
+    global:
+        secure: VyGJAszOT/AWo2RZe7Yt3JlORQSXzMly4YR+C2Xl96W0TkhjpQcra0i38GXaudFWyu2dAK5LGdwzj3Epdux9/3g88vJd6Bit27F1aTbLFWqCSDJ4clsD5KE1HQO9807tdtxf6Z1BbmvtC9IfyCCXTMr9AXtyIdkHIKYuqSRbS6mA7ZgnN7DUgq3/Q14jkiZ2KGdhtYpOnaLPnt/8BfbsrxvXNRgBBrX4kDeF4R0mu9ZYQ7CT36rBFUTht1V82/8726OUc7YYH/Q3884ty0shJ9mz0sF5Smp9zzypjdB1aDFD5NNTKvdJ4puiDeUdHKtqS+xdbe8YaIqyfUXIzdywBcwT4I7hg2n21Etud2mnDA2K8bW/C22ur6dQiaYD0UeL93sKMW4tBN+M3QEwjpiNS34+kSAXXATkFfyz0UXlKzJlWvvvJ/68aumBVXIUnWjieIurjTjOIaJs6DyACDF/7CnZ5lGk8I6wSKWVV3KeQ3JDnM+i7SMNS3dkXpN2x7YwJk2udcfvQe1jGqJ1U3jHmaVlc4fBiRYG8Gp/rorO3Apsex3dz5tiSvF2gCY7Y6KiXoCk1oYT6QzEHGRT/0BUxW4PVEL6COzYayRubQsqdawc8nemgR+p1ydW0lUe3hR6xfXmpDqc3pcGjs8XMwvS9qXYqNpqIY7YNlgjzi/HOtI=
+

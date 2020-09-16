@@ -3,17 +3,7 @@ import re
 import subprocess
 
 
-git_tag_version = (
-    subprocess.check_output("git describe --tags --exact-match", shell=True)
-    .decode("ascii")
-    .strip()
-)
-
-
-if not re.match(r'^[0-9]+\.[0-9]+\.[0-9]+', git_tag_version):
-    raise Exception("Invalid git tag version number: %s" % git_tag_version)
-
-VERSION = git_tag_version
+VERSION = '0.0.1'
 
 
 

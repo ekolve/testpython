@@ -5,7 +5,7 @@ install:
     - pip install requests invoke
 cache: pip
 script:
-    - true
+    - python emit.py
 git:
     depth: 3
 deploy:

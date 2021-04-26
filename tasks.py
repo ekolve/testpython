@@ -1,7 +1,5 @@
 from invoke import task
 
-
-
 import subprocess
 import os
 import requests

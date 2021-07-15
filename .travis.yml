@@ -1,20 +1,11 @@
+os: linux
+arch:
+  - arm64
 language: python
 python:
-    - '3.6'
+  - "3.6"
 install:
-    - pip install requests invoke
-cache: pip
+  - pip install progressbar2 requests invoke boto3 aws-requests-auth jsonschema python-xlib
 script:
-    - python emit.py
-git:
-    depth: 3
-deploy:
-    provider: script
-    script: bash build.sh
-    on:
-        tags: true
-        condition: $TRAVIS_TAG =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$
-env:
-    global:
-        secure: VyGJAszOT/AWo2RZe7Yt3JlORQSXzMly4YR+C2Xl96W0TkhjpQcra0i38GXaudFWyu2dAK5LGdwzj3Epdux9/3g88vJd6Bit27F1aTbLFWqCSDJ4clsD5KE1HQO9807tdtxf6Z1BbmvtC9IfyCCXTMr9AXtyIdkHIKYuqSRbS6mA7ZgnN7DUgq3/Q14jkiZ2KGdhtYpOnaLPnt/8BfbsrxvXNRgBBrX4kDeF4R0mu9ZYQ7CT36rBFUTht1V82/8726OUc7YYH/Q3884ty0shJ9mz0sF5Smp9zzypjdB1aDFD5NNTKvdJ4puiDeUdHKtqS+xdbe8YaIqyfUXIzdywBcwT4I7hg2n21Etud2mnDA2K8bW/C22ur6dQiaYD0UeL93sKMW4tBN+M3QEwjpiNS34+kSAXXATkFfyz0UXlKzJlWvvvJ/68aumBVXIUnWjieIurjTjOIaJs6DyACDF/7CnZ5lGk8I6wSKWVV3KeQ3JDnM+i7SMNS3dkXpN2x7YwJk2udcfvQe1jGqJ1U3jHmaVlc4fBiRYG8Gp/rorO3Apsex3dz5tiSvF2gCY7Y6KiXoCk1oYT6QzEHGRT/0BUxW4PVEL6COzYayRubQsqdawc8nemgR+p1ydW0lUe3hR6xfXmpDqc3pcGjs8XMwvS9qXYqNpqIY7YNlgjzi/HOtI=
-
+  - echo "hello"
+  - invoke poll-ci-build

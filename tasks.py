@@ -43,3 +43,8 @@ def deploy_pip(context):
         raise Exception("Twine token not specified in environment")
     subprocess.check_call("twine upload --repository testpypi -u __token__ dist/*", shell=True)
 
+@task
+def poll_ci_build(context):
+    print("HERE IN POLL CI BUILD")
+
+
